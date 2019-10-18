@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}
+             美食天地
+            {% endblock %}
+
+{% block content %}
+		<ul class="breadnav clearfix">
+			<li class="bnav-item"><a href="index.html">首页</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="shop.html">店面展示</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="javascript:;">北京店</a></li>
+		</ul>
+		<div class="clearfix table-wrap" id="tab-span">
+			<span class="table-item table-active">北京店</span>
+            {% for shop in shop_list %}
+			<span class="table-item">{{ shop.name }}</span>
+
+            {% endfor %}
+			<div class="search clearfix">
+				<input class="inp-txt" type="text" name="address" value="输入关键字"
+				onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
+				onblur="if(this.value==''||this.value=='输入关键字'){this.value='输入关键字';this.style.color='gray';}" />
+				<input class="inp-btn" type="button" name="" id="" value="搜索" />
+			</div>
+		</div>
+		<div id="table-div">
+			<div class="table-pic table-show clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic1.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic2.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap">
+					<span class="shop-pic">
+						<img src="img/shop-pic3.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic4.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic5.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap">
+					<span class="shop-pic">
+						<img src="img/shop-pic6.jpg" alt="" />
+					</span>
+					<p class="shop-tit">北京朝阳区店</p>
+				</a>
+			</div>
+			<div class="table-pic clearfix">
+				<a href="shop-con.html" class="shop-wrap">
+					<span class="shop-pic">
+						<img src="img/shop-pic3.jpg" alt="" />
+					</span>
+					<p class="shop-tit">上海朝阳区店</p>
+				</a>
+			</div>
+			<div class="table-pic clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic4.jpg" alt="" />
+					</span>
+					<p class="shop-tit">厦门朝阳区店</p>
+				</a>
+				<a href="shop-con.html" class="shop-wrap">
+					<span class="shop-pic">
+						<img src="img/shop-pic6.jpg" alt="" />
+					</span>
+					<p class="shop-tit">厦门朝阳区店</p>
+				</a>
+			</div>
+			<div class="table-pic clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic5.jpg" alt="" />
+					</span>
+					<p class="shop-tit">广州朝阳区店</p>
+				</a>
+			</div>
+			<div class="table-pic clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic2.jpg" alt="" />
+					</span>
+					<p class="shop-tit">深圳朝阳区店</p>
+				</a>
+			</div>
+			<div class="table-pic clearfix">
+				<a href="shop-con.html" class="shop-wrap shop-right">
+					<span class="shop-pic">
+						<img src="img/shop-pic1.jpg" alt="" />
+					</span>
+					<p class="shop-tit">朝阳区店</p>
+				</a>
+			</div>
+			<ul class="shop-paging clearfix">
+				<li><a href="shop-con.html" class="pag-item">&lt;</a></li>
+				<li><a href="shop-con.html" class="pag-item pag-active">1</a></li>
+				<li><a href="javascript:;" class="pag-item">2</a></li>
+				<li><a href="javascript:;" class="pag-item">3</a></li>
+				<li><a href="javascript:;" class="pag-item">4</a></li>
+				<li><a href="javascript:;" class="pag-item">&gt;</a></li>
+			</ul>
+		</div>
+
+{% endblock %}

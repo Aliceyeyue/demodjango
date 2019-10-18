@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+        <label for="姓名">姓名</label>
+        <input type="text" name="name" value="" id="姓名">
+    </p>
+        <p>
+        <label for="jiage">价格</label>
+        <input type="text" name="price" value="" id="jiage">
+    </p>
+    <select name="type_id">
+        {% for food_type in food_type_list %}
+
+        <option value="{{ food_type.id }}">{{ food_type.label }}</option>
+        {% endfor %}
+    </select>
+    <p>
+        <label for="tupian">图片</label>
+        <input type="file" name="picture" value="" id="tupian">
+    </p>
+    <p>
+        <label for="miaoshu">描述</label>
+        <input type="text" name="description" value="" id="miaoshu">
+    </p>
+{#    <p><input type="radio" name="sex" id="male" value="男生"><label for="male">男</label></p>#}
+{#    <p><input type="radio" name="sex" id="female" value="女生"> <label for="female">女</label>#}
+{#    </p>#}
+    <p><button submit>提交了</button></p>
+</form>
+</body>
+</html>
