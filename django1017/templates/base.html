@@ -12,7 +12,10 @@
         </title>
 		<link rel="stylesheet" type="text/css" href="/static/css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-	</head>
+	{% block style %}
+    {% endblock %}
+
+    </head>
 	<body>
 		<div class="clearfix nav">
 			<a class="logo" href="javascript:;"></a>
@@ -23,6 +26,11 @@
 				<li><a class="nav-item" href="shop.html">店面展示</a></li>
 				<li><a class="nav-item" href="news.html">新闻资讯</a></li>
 				<li><a class="nav-item" href="about-us.html">关于我们</a></li>
+                {% if request.COOKIES.username %}
+				<li><a class="nav-item" href="/logout/">退出</a></li>
+                {% else %}
+                <li><a class="nav-item" href="/login/">登录</a></li>
+                {% endif %}
 			</ul>
 		</div>
 
@@ -37,7 +45,9 @@
 		</div>
 
 		{% block content %}
+        {% endblock %}
 
+        {% block script %}
         {% endblock %}
 
 		<div class="foot">

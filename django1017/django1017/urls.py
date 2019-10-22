@@ -17,12 +17,35 @@ from django.contrib import admin
 from django.urls import path,re_path
 from Foods.views import *
 from django1017.views import *
+from django.views.decorators.csrf import csrf_exempt
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',index),
     path('shop/',shop),
     path('tr/',tr),
+    path('agp/',ajax_get_page),
+    path('agd/',ajax_get_data),
+    path('p_form/',p_form),
+    path('form_check/',form_check),
+    path('setcookie/',setCookie),
+    path('del_cookie/',del_cookie)
 ]
 urlpatterns += [
     path('add_food_type/', add_food_type),
-    path('add_food/', add_food),]
+    path('add_food/', add_food),
+    path('add_shop/', add_shop),
+
+]
+urlpatterns += [
+    path('register/',register),
+    path('login/',login),
+    path('logout/',logout),
+]
+urlpatterns += [
+    path('foods/',csrf_exempt(FoodView.as_view())),
+    path('ajax_vue/',ajax_vue),
+    path('meishi/',meishi)
+                ]
+from Foods.urls import router
+urlpatterns += router.urls

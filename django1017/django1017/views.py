@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response,HttpResponse
 from Foods.models import *
 
-def index(request):
-    return render_to_response('index.html',locals())
+# def index(request):
+#     return render_to_response('index.html',locals())
 def shop(request):
     shop_list = Shop.objects.all()
     return render_to_response('shop.html',locals())
@@ -30,3 +30,18 @@ def tr(request):
         food.type_id = Foods_type.objects.get(id=int(type_id))
         food.save()
     return render(request,'test_request.html',locals())
+
+from rest_framework import  mixins,viewsets
+from Foods.models import Foods
+from Foods.serializers import FoodSerializers
+
+class Foods_View(mixins.CreateModelMixin,
+                 mixins.DestroyModelMixin,
+                 mixins.UpdateModelMixin,
+                 mixins.RetrieveModelMixin,
+                 mixins.ListModelMixin,
+                 viewsets.GenericViewSet):
+    queryset = Foods.objects.all()
+    serializer_class = FoodSerializers
+
+

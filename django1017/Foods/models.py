@@ -19,7 +19,8 @@ class Shop(models.Model):
     stop_car = models.CharField(max_length=32)
     address = models.TextField()
     label = models.TextField()
-
+    def __str__(self):
+        return self.name,self.picture
 class Company(models.Model):
     name = models.CharField(max_length=32)
     picture = models.ImageField(upload_to="img")
@@ -29,6 +30,9 @@ class Company(models.Model):
     address = models.TextField()
 
 class News(models.Model):
+    class Meta:
+        verbose_name = "news新闻"
+        verbose_name_plural= "开口了"
     title = models.CharField(max_length=32)
     time = models.DateField()
     description = models.TextField()
@@ -36,5 +40,7 @@ class News(models.Model):
     content = models.TextField()
     type = models.CharField(max_length = 32)
 
-
+class User(models.Model):
+    username = models.CharField(max_length=32)
+    password = models.CharField(max_length=32)
 # Create your models here.

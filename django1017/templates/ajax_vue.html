@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.0.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/vue-resource.js"></script>
+
+</head>
+<body>
+    {% verbatim myblock %}
+        <div id="content">
+            {{ message }}
+        </div>
+    {% endverbatim myblock %}
+    <script>
+        Vue.use(VueResource);
+        var vue = new Vue(
+            {
+                el:"#content",
+                data:{
+                    message:"world is just sekai",
+                    food_list:[]
+                },
+
+            created:function(){
+                this.$http.get("/API/Food/").then(
+                    function(data){
+                        this.food_list = data[data]
+                    },//success
+                    function(error){
+                        console.log(error)
+                    }//error
+                );//vue 封装过的ajax
+        },//初始化执行
+        methods:{
+                do_something:function(){
+                    alert('古琴余韵')
+                }
+            }
+        }
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="jquery-1.10.2.min.js"></script>
+</head>
+<body>
+{#<p>常规</p>#}
+{#{{ userform }}#}
+{#<hr>#}
+{#<p>p标签</p>#}
+{#{{ userform.as_p }}#}
+{#<hr>#}
+{#<p>ul类型</p>#}
+{#{{ userform.as_ul }}#}
+{#<hr>#}
+{#<p>table类型</p>#}
+{#{{ userform.as_table }}#}
+{#<hr>#}
+{#<p>循环类型</p>#}
+{#{% for field in userform %}#}
+{#    <div>#}
+{#        <span>{{ field.label }}</span>#}
+{#        {{ field }}#}
+{#    </div>#}
+{#{% endfor %}#}
+<hr>
+<form method="post">
+<p class="title">foodform</p>
+{{ foodform.as_p }}
+<button type="submit">提交</button>
+</form>
+</body>
+</html>

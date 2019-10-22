@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Foods',
+    'Foods.apps.FoodsConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static")
 ]
-MEDIA_URL = '/media/'
+MEDIA_URL = '/./static/'#这里原来是/media/
 MEDIA_ROOT = os.path.join(BASE_DIR,"static")
 
 #TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
